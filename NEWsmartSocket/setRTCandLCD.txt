@@ -1,0 +1,145 @@
+#include <LiquidCrystal.h>
+#include <Wire.h>
+#include "RTClib.h"
+ 
+// LCD
+// LCD D4 to Arduino 9
+// LCD D5 to Arduino 10
+// LCD D6 to Arduino 11
+// LCD D7 to Arduino 12
+// RS 4 to Arduino 7
+// EN 6 to Arduino 8
+// RH 5 to GND
+// pin 3 to center pot
+LiquidCrystal lcd(7, 8, 9, 10, 11, 12);
+ 
+// DS1307 RTC
+// SDA pin to Arduino A4
+// SCL pin to Arduino A5
+RTC_DS1307 RTC;
+ 
+void setup() {
+  Serial.begin(57600);
+  Wire.begin();
+  RTC.begin();
+ 
+
+ 
+  lcd.begin(16,2); // 16x2 LCD
+  lcd.clear(); // blank the display
+delay (1000);
+   RTC.adjust(DateTime(2017, 8, 27, 22, 54, 0));
+
+
+}
+ 
+void loop() {
+
+  DateTime now = RTC.now();
+  lcd.clear();
+  lcd.setCursor(0,0);
+  if (now.day() < 10) {
+    lcd.print("0");
+  }
+ 
+  lcd.print(now.month(), DEC);
+  lcd.print("/");
+  if (now.month() < 10) {
+    lcd.print("0");
+  }
+ 
+  lcd.print(now.day(), DEC);
+  lcd.print("/");
+  lcd.print(now.year(), DEC);
+  lcd.setCursor(0,1);
+  if (now.hour() < 10) {
+    lcd.print("0");
+  }
+ 
+  lcd.print(now.hour(), DEC);
+  lcd.print(":");
+  if (now.minute() < 10) {
+    lcd.print("0");
+  }
+ 
+  lcd.print(now.minute(), DEC);
+  lcd.print(":");
+  if (now.second() < 10) {
+    lcd.print("0");
+  }
+ 
+  lcd.print(now.second(), DEC);
+  delay(1000);
+}#include <LiquidCrystal.h>
+#include <Wire.h>
+#include "RTClib.h"
+ 
+// LCD
+// LCD D4 to Arduino 9
+// LCD D5 to Arduino 10
+// LCD D6 to Arduino 11
+// LCD D7 to Arduino 12
+// RS 4 to Arduino 7
+// EN 6 to Arduino 8
+// RH 5 to GND
+// pin 3 to center pot
+LiquidCrystal lcd(7, 8, 9, 10, 11, 12);
+ 
+// DS1307 RTC
+// SDA pin to Arduino A4
+// SCL pin to Arduino A5
+RTC_DS1307 RTC;
+ 
+void setup() {
+  Serial.begin(57600);
+  Wire.begin();
+  RTC.begin();
+ 
+
+ 
+  lcd.begin(16,2); // 16x2 LCD
+  lcd.clear(); // blank the display
+delay (1000);
+   RTC.adjust(DateTime(2017, 8, 27, 22, 54, 0));
+
+
+}
+ 
+void loop() {
+
+  DateTime now = RTC.now();
+  lcd.clear();
+  lcd.setCursor(0,0);
+  if (now.day() < 10) {
+    lcd.print("0");
+  }
+ 
+  lcd.print(now.month(), DEC);
+  lcd.print("/");
+  if (now.month() < 10) {
+    lcd.print("0");
+  }
+ 
+  lcd.print(now.day(), DEC);
+  lcd.print("/");
+  lcd.print(now.year(), DEC);
+  lcd.setCursor(0,1);
+  if (now.hour() < 10) {
+    lcd.print("0");
+  }
+ 
+  lcd.print(now.hour(), DEC);
+  lcd.print(":");
+  if (now.minute() < 10) {
+    lcd.print("0");
+  }
+ 
+  lcd.print(now.minute(), DEC);
+  lcd.print(":");
+  if (now.second() < 10) {
+    lcd.print("0");
+  }
+ 
+  lcd.print(now.second(), DEC);
+  delay(1000);
+}
