@@ -302,12 +302,12 @@ if ((NowPanic == 1) ||
 
 
 
-if ((Enable1 = 1) && (now.hour() == OffHour1) && (now.minute() == OffMinute1)) {                                    //AAAshut off
+if ((Enable1 == 1) && (now.hour() == OffHour1) && (now.minute() == OffMinute1)) {                                    //AAAshut off
 
   digitalWrite(Relay1, HIGH);
 
 }
-if ((Enable2 = 1) && (now.hour() == OffHour2) && (now.minute() == OffMinute2)) {                              //BBBshut off
+if ((Enable2 == 1) && (now.hour() == OffHour2) && (now.minute() == OffMinute2)) {                              //BBBshut off
 
   digitalWrite(Relay2, HIGH);
 }
